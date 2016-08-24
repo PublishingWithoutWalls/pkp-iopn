@@ -1,25 +1,25 @@
 <?php
 
 /**
- * @file plugins/themes/default/DefaultThemePlugin.inc.php
+ * @file plugins/themes/iopn-ojs/IopnThemePlugin.inc.php
  *
  * Copyright (c) 2014-2016 Simon Fraser University Library
  * Copyright (c) 2003-2016 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class DefaultThemePlugin
- * @ingroup plugins_themes_default
+ * @class IopnThemePlugin
+ * @ingroup plugins_themes_iopn
  *
- * @brief Default theme
+ * @brief IOPN theme
  */
 
 import('lib.pkp.classes.plugins.ThemePlugin');
 
-class DefaultThemePlugin extends ThemePlugin {
+class IopnThemePlugin extends ThemePlugin {
 	/**
 	 * Constructor
 	 */
-	function DefaultThemePlugin() {
+	function IopnThemePlugin() {
 		parent::ThemePlugin();
 	}
 
@@ -96,7 +96,7 @@ class DefaultThemePlugin extends ThemePlugin {
 	 * @return string
 	 */
 	function getDisplayName() {
-		return __('plugins.themes.default.name');
+		return __('plugins.themes.iopn.name');
 	}
 
 	/**
@@ -104,7 +104,7 @@ class DefaultThemePlugin extends ThemePlugin {
 	 * @return string
 	 */
 	function getDescription() {
-		return __('plugins.themes.default.description');
+		return __('plugins.themes.iopn.description');
 	}
 }
 

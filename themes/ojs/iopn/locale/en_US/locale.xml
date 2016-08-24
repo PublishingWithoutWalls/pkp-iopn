@@ -2,7 +2,7 @@
 <!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
 
 <!--
-  * plugins/themes/default/locale/en_US/locale.xml
+  * plugins/themes/iopn-ojs/locale/en_US/locale.xml
   *
   * Copyright (c) 2014-2016 Simon Fraser University Library
   * Copyright (c) 2003-2016 John Willinsky
@@ -12,6 +12,6 @@
   -->
  
 <locale name="en_US" full_name="U.S. English">
-	<message key="plugins.themes.default.name">Default Theme</message>
-	<message key="plugins.themes.default.description">This theme implements the default theme.</message>
+	<message key="plugins.themes.iopn.name">IOPN Theme</message>
+	<message key="plugins.themes.iopn.description">This theme customizes the default theme for the Illinois Open Publishing Network.</message>
 </locale>
