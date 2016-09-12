@@ -81,7 +81,7 @@ class IopnBootstrapThemePlugin extends ThemePlugin {
 	 * @return string
 	 */
 	function getDisplayName() {
-		return __('plugins.themes.bootstrap3.name');
+		return __('plugins.themes.iopnBootstrap.name');
 	}
 
 	/**
@@ -89,6 +89,6 @@ class IopnBootstrapThemePlugin extends ThemePlugin {
 	 * @return string
 	 */
 	function getDescription() {
-		return __('plugins.themes.bootstrap3.description');
+		return __('plugins.themes.iopnBootstrap.description');
 	}
 }

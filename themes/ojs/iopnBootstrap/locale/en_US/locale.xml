@@ -12,8 +12,8 @@
   -->
 
 <locale name="en_US" full_name="U.S. English">
-	<message key="plugins.themes.bootstrap3.name">IOPN Boostrap 3 Theme</message>
-	<message key="plugins.themes.bootstrap3.description">IOPN’s Boostrap 3 theme for the reader frontend.</message>
+	<message key="plugins.themes.iopnBootstrap.name">IOPN Boostrap 3 Theme</message>
+	<message key="plugins.themes.iopnBootstrap.description">IOPN’s Boostrap 3 theme for the reader frontend.</message>
 	<message key="plugins.themes.bootstrap3.accessible_menu.label">Quick jump to page content</message>
 	<message key="plugins.themes.bootstrap3.accessible_menu.main_navigation">Main Navigation</message>
 	<message key="plugins.themes.bootstrap3.accessible_menu.main_content">Main Content</message>
