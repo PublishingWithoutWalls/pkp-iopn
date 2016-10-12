@@ -14,8 +14,8 @@
 <version>
 	<application>iopnBootstrap</application>
 	<type>plugins.themes</type>
-	<release>0.9.0.0</release>
-	<date>2016-09-12</date>
+	<release>0.9.1.0</release>
+	<date>2016-10-12</date>
 	<lazy-load>0</lazy-load>
 	<class>IopnBootstrapThemePlugin</class>
 </version>
