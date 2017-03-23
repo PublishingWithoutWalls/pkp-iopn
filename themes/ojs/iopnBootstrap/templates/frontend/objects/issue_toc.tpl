@@ -1,8 +1,8 @@
 {**
  * templates/frontend/objects/issue_toc.tpl
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University Library
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief View of an Issue which displays a full table of contents.
@@ -22,23 +22,23 @@
 	{/if}
 
 	{* Issue introduction area above articles *}
-	<div class="heading">
+	<div class="heading row">
+		{assign var="issueDetailsCol" value="12"}
 
 		{* Issue cover image and description*}
-		{assign var=issueCover value=$issue->getCoverImage()}
+		{assign var=issueCover value=$issue->getLocalizedCoverImageUrl()}
 		{if $issueCover}
-			<div class="thumbnail">
+			{assign var="issueDetailsCol" value="8"}
+			<div class="thumbnail col-md-4">
 				<a class="cover" href="{url op="view" page="issue" path=$issue->getBestIssueId()}">
-					<img class="img-responsive" src="{$coverImagePath|escape}{$issueCover|escape}"{if $issue->getCoverImageAltText() != ''} alt="{$issue->getCoverImageAltText()|escape}"{/if}>
+					<img class="img-responsive" src="{$issueCover|escape}"{if $issue->getLocalizedCoverImageAltText() != ''} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
 				</a>
-				{if $issue->hasDescription()}
-					<div class="description">
-						{$issue->getLocalizedDescription()|strip_unsafe_html}
 					</div>
 				{/if}
-			</div>
 
-		{elseif $issue->hasDescription()}
+		<div class="issue-details col-md-{$issueDetailsCol}">
+
+			{if $issue->hasDescription()}
 			<div class="description">
 				{$issue->getLocalizedDescription()|strip_unsafe_html}
 			</div>
@@ -53,11 +53,10 @@
 			{/if}
 			{if $pubId}
 				{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-				<div class="pub_id {$pubIdPlugin->getPubIdType()|escape}">
-					<span class="type">
+					<p class="pub_id {$pubIdPlugin->getPubIdType()|escape}">
+						<strong>
 						{$pubIdPlugin->getPubIdDisplayType()|escape}:
-					</span>
-					<span class="id">
+						</strong>
 						{if $doiUrl}
 							<a href="{$doiUrl|escape}">
 								{$doiUrl}
@@ -65,20 +64,20 @@
 						{else}
 							{$pubId}
 						{/if}
-					</span>
-				</div>
+					</p>
 			{/if}
 		{/foreach}
 
 		{* Published date *}
 		{if $issue->getDatePublished()}
-			<div class="published">
+				<p class="published">
 				<strong>
 					{translate key="submissions.published"}:
 				</strong>
 				{$issue->getDatePublished()|date_format:$dateFormatShort}
-			</div>
+				</p>
 		{/if}
+		</div>
 	</div>
 
 	{* Full-issue galleys *}

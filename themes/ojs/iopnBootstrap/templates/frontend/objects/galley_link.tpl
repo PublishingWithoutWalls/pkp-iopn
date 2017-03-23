@@ -1,8 +1,8 @@
 {**
  * templates/frontend/objects/galley_link.tpl
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University Library
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief View of a galley object as a link to view or download the galley, to be used
@@ -49,7 +49,7 @@
 {/if}
 
 {* Don't be frightened. This is just a link *}
-<a class="galley-link btn btn-default role="button" {$type}{if $restricted} restricted{/if}" href="{url page=$page op="view" path=$parentId|to_array:$galley->getBestGalleyId($currentJournal)}">
+<a class="galley-link btn btn-default {$type}{if $restricted} restricted{/if}" role="button" href="{url page=$page op="view" path=$parentId|to_array:$galley->getBestGalleyId($currentJournal)}">
 
 	{* Add some screen reader text to indicate if a galley is restricted *}
 	{if $restricted}

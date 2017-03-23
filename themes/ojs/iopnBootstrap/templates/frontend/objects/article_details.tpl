@@ -1,8 +1,8 @@
 {**
  * templates/frontend/objects/article_details.tpl
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University Library
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief View of an Article which displays all details about the article.
@@ -35,13 +35,13 @@
 			<h2 class="sr-only">{translate key="plugins.themes.bootstrap3.article.sidebar"}</h2>
 
 			{* Article/Issue cover image *}
-			{if $article->getCoverImage() || $issue->getCoverImage()}
+			{if $article->getLocalizedCoverImage() || $issue->getLocalizedCoverImage()}
 				<div class="cover-image">
-					{if $article->getCoverImage()}
-						<img class="img-responsive" src="{$publicFilesDir}/{$article->getCoverImage()|escape}"{if $article->getCoverImageAltText()} alt="{$article->getCoverImageAltText()|escape}"{/if}>
+					{if $article->getLocalizedCoverImage()}
+						<img class="img-responsive" src="{$article->getLocalizedCoverImageUrl()|escape}"{if $article->getLocalizedCoverImageAltText()} alt="{$article->getLocalizedCoverImageAltText()|escape}"{/if}>
 					{else}
 						<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
-							<img class="img-responsive" src="{$publicFilesDir}/{$issue->getCoverImage()|escape}"{if $issue->getCoverImageAltText()} alt="{$issue->getCoverImageAltText()|escape}"{/if}>
+							<img class="img-responsive" src="{$issue->getLocalizedCoverImageUrl()|escape}"{if $issue->getLocalizedCoverImageAltText()} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
 						</a>
 					{/if}
 				</div>
@@ -253,6 +253,15 @@
 				{/if}
 
 				{call_hook name="Templates::Article::Details"}
+				{* References *}
+				{if $article->getCitations()}
+					<div class="article-references">
+						<h2>{translate key="submission.citations"}</h2>
+						<div class="article-references-content">
+							{$article->getCitations()|nl2br}
+						</div>
+					</div>
+				{/if}
 
 			</section><!-- .article-details -->
 		</div><!-- .col-md-8 -->

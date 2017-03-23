@@ -1,8 +1,8 @@
 {**
  * templates/frontend/pages/userLostPassword.tpl
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University Library
+ * Copyright (c) 2000-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Password reset form.
@@ -31,7 +31,7 @@
 			<label for="login-email">
 				{translate key="user.login.registeredEmail"}
 			</label>
-			<input type="email" class="form-control" id="login-email" placeholder="{translate key='user.login.registeredEmail'}" value="{$email|escape}" maxlenght="32" required>
+			<input type="email" name="email" class="form-control" id="login-email" placeholder="{translate key='user.login.registeredEmail'}" value="{$email|escape}" maxlenght="32" required>
 		</div>
 
 		<div class="buttons">

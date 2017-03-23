@@ -1,8 +1,8 @@
 {**
  * templates/frontend/objects/issue_summary.tpl
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University Library
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief View of an Issue which displays a summary for use in lists
@@ -16,10 +16,10 @@
 	{assign var=issueSeries value=$issue->getIssueSeries()}
 
 	{* Show cover image and use cover description *}
-	{if $issue->getCoverImage()}
+	{if $issue->getLocalizedCoverImage()}
 		<div class="media-left">
 			<a class="cover" href="{url op="view" path=$issue->getBestIssueId($currentJournal)}">
-				<img class="media-object" src="{$coverImagePath|escape}{$issue->getCoverImage()}">
+				<img class="media-object" src="{$issue->getLocalizedCoverImageUrl()}">
 			</a>
 		</div>
 	{/if}

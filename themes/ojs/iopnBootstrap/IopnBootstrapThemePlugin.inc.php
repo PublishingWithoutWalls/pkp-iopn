@@ -3,8 +3,8 @@
 /**
  * @file plugins/themes/iopnBootstrap/IopnBootstrapThemePlugin.inc.php
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University Library
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class IopnBootstrapThemePlugin
@@ -50,6 +50,14 @@ class IopnBootstrapThemePlugin extends ThemePlugin {
 
 		$this->addStyle('bootstrap', 'styles/bootstrap.less');
 
+		$locale = AppLocale::getLocale();
+		if (AppLocale::getLocaleDirection($locale) === 'rtl') {
+			if (Config::getVar('general', 'enable_cdn')) {
+				$this->addStyle('bootstrap-rtl', '//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css', array('baseUrl' => ''));
+			} else {
+				$this->addStyle('bootstrap-rtl', 'styles/bootstrap-rtl.min.css');
+			}
+		}
 		$bootstrapTheme = $this->getOption('bootstrapTheme');
 		if (!empty($bootstrapTheme)) {
 			$this->addStyle('bootstrapTheme-' . $bootstrapTheme, 'styles/' . $bootstrapTheme . '.less');

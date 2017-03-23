@@ -1,11 +1,11 @@
 /**
  * @file plugins/themes/bootstrap3/index.less
  *
- * Copyright (c) 2014-2016 Simon Fraser University Library
- * Copyright (c) 2003-2016 John Willinsky
+ * Copyright (c) 2014-2017 Simon Fraser University Library
+ * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @brief Boostrap 3 theme stylesheet. This is the base styles that must be
+ * @brief Bootstrap 3 theme stylesheet. This is the base styles that must be
  *   included for any theme.
  *
  */
@@ -70,6 +70,13 @@
     margin-bottom: 2em;
 }
 
+// Cap the height of an issue thumbnail image
+.issue-toc {
+
+    img {
+        max-height: 25em;
+    }
+}
 .article-details {
 
     // Add space below authors on article page
@@ -177,4 +184,59 @@ footer[role="contentinfo"] {
     background: @gray-lighter; // bootstrap variable
     padding: 2em;
     margin-top: 4em;
+}
+
+// Style the PDF and HTML view
+.header_view {
+	z-index: 2;
+	background: @navbar-default-bg;
+    &:extend(.navbar all);
+    &:extend(.navbar-default all);
+
+    a {
+        display: inline-block;
+        padding: @navbar-padding-vertical @navbar-padding-horizontal;
+        color: @navbar-default-link-color;
+
+        &:hover,
+        &:focus {
+            color: @navbar-default-link-hover-color;
+            background: @navbar-default-link-hover-bg;
+        }
+
+        &:active {
+            color: @navbar-default-link-active-color;
+            background: @navbar-default-link-active-bg;
+        }
+
+        &:disabled {
+            color: @navbar-default-link-disabled-color;
+            background: @navbar-default-link-disabled-bg;
+        }
+    }
+
+    .return,
+    .download .label {
+        &:extend(.sr-only all);
+    }
+
+    .download {
+        &:extend(.pull-right all);
+    }
+}
+
+#pdfCanvasContainer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow-y: hidden;
+
+	iframe {
+		width: 100%;
+		height: 100%;
+		padding-top: @navbar-height;
+		border: none;
+	}
 }
